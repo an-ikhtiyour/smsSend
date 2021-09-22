@@ -13,7 +13,7 @@ const levels = {
 const logger = winston.createLogger({
     format: winston.format.combine(
         winston.format.label({
-            label: "tasks-app"
+            label: "sms"
         }),
         winston.format.timestamp(),
         winston.format.splat(),
