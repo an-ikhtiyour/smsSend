@@ -2,10 +2,10 @@ const Sms = require("../../models/sms");
 
 let smsStorage = {
     create: async (data) => {
-        const task = new Sms(data);
+        const sms = new Sms(data);
 
         try {
-            const res = await task.save();
+            const res = await sms.save();
             return res.id;
         } catch (error) {
             throw new Error(error.message);
@@ -14,15 +14,16 @@ let smsStorage = {
 
     update: async (id, data) => {
         try {
-            let task = await Sms.findOne({ _id: id });
+            let sms = await Sms.findOne({ _id: id });
 
-            if (!task) {
+            if (!sms) {
                 throw new Error("Not found in database");
             }
 
-            task.title = data.title;
-            task.status = data.status;
-            const res = await task.save();
+            sms.name = data.name;
+            sms.subject = data.subject;
+            sms.email = data.email;
+            const res = await sms.save();
 
             return res.id;
         } catch (error) {
@@ -32,13 +33,13 @@ let smsStorage = {
 
     get: async (id) => {
         try {
-            let task = await Sms.findOne({ _id: id });
+            let sms = await Sms.findOne({ _id: id });
 
-            if (!task) {
+            if (!sms) {
                 throw new Error("Not found in database");
             }
 
-            return task;
+            return sms;
         } catch (error) {
             throw new Error(error.message);
         }

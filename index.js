@@ -9,7 +9,8 @@ function main() {
     const mongoDBUrl =
         "mongodb://" +
         // cfg.mongoUser +
-        // ":" +
+        // ":" +\
+        
         // cfg.mongoPassword +
         // "@" +
         cfg.mongoHost +
